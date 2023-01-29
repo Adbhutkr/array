@@ -1,0 +1,45 @@
+Sample Input 1:
+1
+7
+1 2 3 4 5 6 7
+2
+Sample Output 1:
+3 4 5 6 7 1 2
+
+
+
+public class Solution {  
+
+    public static void rotate(int[] arr, int d) {
+    int n  = arr.length; int k = n-1; int a[] = new int[n];
+
+if(n!=0)
+{
+    for(int i = 0; i<= (n-1)/2; i++)
+    {
+      int tempo = arr[i];
+      arr[i]=arr[k];
+      arr[k] = tempo;
+      k--;
+    }
+    int z = n-d-1;
+    for(int i = 0;i<n-d;i++)
+    {
+        a[i]= arr[z];
+        z--;
+    }
+    int v = n-1;
+    for(int j = n-d;j<n;j++ )
+    {
+        a[j]= arr[v];
+        v--;
+    }
+    for(int i = 0;i<n;i++)
+    {
+        arr[i] = a[i];
+    }
+
+    }
+
+}
+}
