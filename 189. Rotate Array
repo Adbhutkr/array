@@ -1,0 +1,44 @@
+Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.
+
+ 
+
+Example 1:
+
+Input: nums = [1,2,3,4,5,6,7], k = 3
+Output: [5,6,7,1,2,3,4]
+Explanation:
+rotate 1 steps to the right: [7,1,2,3,4,5,6]
+rotate 2 steps to the right: [6,7,1,2,3,4,5]
+rotate 3 steps to the right: [5,6,7,1,2,3,4]
+
+sol)  class Solution 
+{
+
+
+    private void swap(int start , int end, int[] nums)
+    {
+       
+        while(start < end)
+        {
+            int temp2 = nums[start] ;
+            nums[start++] = nums[end] ;
+            nums[end--] = temp2 ;
+           
+            
+        }
+    }
+    public void rotate(int[] nums, int k) 
+    {
+        k=k%nums.length;
+        // if k happens to be greater then array's length let it be 10 then 10%7=3 this means 3 spaces
+        int L = nums.length -1 ; 
+        // for reversing loop
+        swap(0,L,nums);
+        // for half
+        swap(0,k-1,nums);
+        swap(k,L,nums);
+       
+        
+    }
+}
+
